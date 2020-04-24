@@ -26,12 +26,16 @@ export default class AsyncHttpContext {
     return new Proxy(this, proxyHandler)
   }
 
-  public runSyncAndReturn (context, next) {
-    return this.$context.runSyncAndReturn(context, next)
+  public run (context, next) {
+    return this.$context.run(context, next)
   }
 
   public get context () {
-    return this.$context.getStore() || {}
+    const store = this.$context.getStore()
+    if (store === undefined) {
+      throw new Error('AsyncHttpContext cannot be used outside of a request context')
+    }
+    return store;
   }
 }
 
