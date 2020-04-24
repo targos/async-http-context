@@ -1,0 +1,35 @@
+{
+  "name": "adonis-async-http-context",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build/src/AsyncHttpContextProvider.js",
+  "typings": "./index.d.ts",
+  "files": [
+    "index.d.ts",
+    "build/src"
+  ],
+  "scripts": {
+    "clean": "del build",
+    "build": "npm run clean && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Romain Lanz <romain.lanz+npm@pm.me>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@adonisjs/core": ">=5.0.0-preview"
+  },
+  "devDependencies": {
+    "@adonisjs/core": "^2.10.4",
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/mrm-preset": "^2.2.4",
+    "del": "^5.1.0",
+    "typescript": "^3.8.3"
+  },
+  "adonisjs": {
+    "types": "adonis-async-http-context",
+    "providers": [
+      "adonis-async-http-context"
+    ]
+  }
+}
