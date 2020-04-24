@@ -11,6 +11,7 @@
   "scripts": {
     "clean": "del build",
     "build": "npm run clean && tsc",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
