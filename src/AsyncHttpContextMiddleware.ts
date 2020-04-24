@@ -5,6 +5,6 @@ export default class AsyncHttpContextMiddleware {
   }
 
   public async handle (ctx: HttpContextContract, next: () => Promise<void>) {
-    return this.$context.runSyncAndReturn(ctx, next)
+    return this.$context.run(ctx, next)
   }
 }
