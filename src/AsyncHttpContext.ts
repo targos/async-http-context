@@ -16,11 +16,11 @@ const proxyHandler: ProxyHandler<AsyncHttpContext> = {
       return Reflect.get(target, name, receiver)
     }
 
-    return Reflect.get(target.context, name, receiver)
+    return Reflect.get(target.ctx, name, receiver)
   },
 
   set (target, name, value, receiver) {
-    return Reflect.set(target.context, name, value, receiver)
+    return Reflect.set(target.ctx, name, value, receiver)
   },
 }
 
@@ -33,11 +33,20 @@ export default class AsyncHttpContext {
     return new Proxy(this, proxyHandler)
   }
 
-  public run (context, next) {
+  // Internal
+  public $run (context, next) {
     return this.$context.run(context, next)
   }
 
-  public get context () {
+  public getStore() {
+    return this.$context.getStore()
+  }
+
+  public enterWith(store) {
+    return this.$context.enterWith(store)
+  }
+
+  public get ctx () {
     const store = this.$context.getStore()
     if (store === undefined) {
       throw new Error('AsyncHttpContext cannot be used outside of a request context')
@@ -45,4 +54,3 @@ export default class AsyncHttpContext {
     return store;
   }
 }
-
