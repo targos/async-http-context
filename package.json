@@ -24,7 +24,7 @@
     "@adonisjs/core": "^2.10.4",
     "@adonisjs/fold": "^4.0.9",
     "@adonisjs/mrm-preset": "^2.2.4",
-    "del": "^5.1.0",
+    "del-cli": "^3.0.1",
     "typescript": "^3.8.3"
   },
   "adonisjs": {
